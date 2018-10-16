@@ -55,17 +55,19 @@ interface Particle
 class OddballParticle implements Particle
 {
 	double myX, myY, mySpeed, myAngle;
-	int myColor;
+	int myColor,randomX,randomY;
 	OddballParticle(){
 		myColor = 255;
-		myX = 300;
-		myY = 300;
+		myX = (int)(Math.random()*600);
+		myY = 0;
 		myAngle = (Math.PI*2) * Math.random();
 		mySpeed = Math.random()*11;
+		randomX = (int)(Math.random()*10)-5;
+		randomY = (int)(Math.random()*50);
 	}
 	public void move(){
-		myX = myX + (Math.cos(myAngle) * mySpeed);
-		myY = myY + (Math.sin(myAngle) * mySpeed);
+		myX = myX + randomX;
+		myY = myY + randomY;
 	}
 	public void show(){
 		fill(255,0,0);
